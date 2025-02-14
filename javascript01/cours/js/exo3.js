@@ -101,6 +101,131 @@ function compterVoyelles(chaine){
 }
 console.log(compterVoyelles("bonjour les gens"))
 
+function compterVoyelles(chaine){
+    let voyelles="aeiouyAEIOUY"
+    let compteur=0
+
+    for(let i=0;i<chaine.length;i++){
+console.log(chaine[i])
+        if( voyelles.includes(chaine[i])){
+            compteur++
+        }
+    }
+
+    return compteur
+
+}
+console.log("compteur :",compterVoyelles("bonjour les gens"))
+
+
+
+function criAnimals(animal){
+
+
+    switch(animal){  
+
+        case "chien":
+            return "ouaf"
+        case "chat":
+            return "miaou"    
+        default :
+        return " je ne vais pas faire tous les animaux de la planète !!!"    
+   
+
+    }
+}
+consol(criAnimals("rat"))
+
+
+function plusOuMoin(chiffre){
+
+    if(isNaN(chiffre)){
+        console.error("il doit y avoir un nombre")
+   
+    }else if(chiffre< 0){
+       return "nombre negatif"
+    }else if(chiffre === 0){
+        return "nombre null"
+    }else{
+        return "nombre positif"
+    
+
+}
+}
+
+console.log( "plus ou moins 1",plusOuMoin(-1))
+console.log( "plus ou moins 2",plusOuMoin(3))
+console.log( "plus ou moins 3",plusOuMoin(0))
+console.log( "plus ou moins 4",plusOuMoin("chaine"))
+console.log( "plus ou moins 5",plusOuMoin(-3))
+console.log( "plus ou moins 6",plusOuMoin(10))
+console.log( "plus ou moins 7",plusOuMoin(-50))
+console.log( "plus ou moins 10",plusOuMoin(0))
+console.log( "plus ou moins 11",plusOuMoin("chaine"))
+
+
+
+
+// let stock= Number(prompt("ecris un chiffre"))
+
+// console.log(" reponse prompt avec variable", plusOuMoin(stock)
+// )
+
+function pairOuImpair(n){
+    
+
+    if(  n % 2  === 0){
+
+        return "pair"
+    }else{
+
+        return "impaire"
+    }
+  
+    
+
+}
+console.log(pairOuImpair(2))
+console.log(pairOuImpair(3))
+console.log(pairOuImpair(43))
+
+
+// exercice calculatrice 
+
+function calculer (a,b,operateur){
+
+
+    switch(operateur){
+        case "+":
+            return a+b
+        case "-":
+            return a-b    
+        case "*":
+            return a*b
+
+        case "/":
+            if(b !== 0){
+              return a / b
+            }else{
+                return "erreur : division par zero impossible"
+            }
+        case "/" :
+
+            //operateur conditionnel (ternaire) pour simplifier le if et le else 
+            // condition ? si vrai : si faux
+            // si b !==0 alors( ? ) division sinon( : ) 'erreur...
+            return b!==0 ? a / b :"erreur : division par zero impossible"
+        
+        default: 
+        return "operateur invalide"
+    }
+}
+
+console.log(calculer(10,5,"+"))
+console.log(calculer(10,5,"-"))
+console.log(calculer(10,5,"*"))
+console.log(calculer(10,5,"/"))
+console.log(calculer(10,0,"/"))
 
 
 // Exercice 6 : Calculatrice simple

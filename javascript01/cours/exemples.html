@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Utilisateurs</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        table { width: 80%; margin: 20px auto; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 10px; }
+        th { background-color: #4CAF50; color: white; }
+        input, button { margin: 5px; padding: 10px; }
+    </style>
+</head>
+<body>
+
+    <h2>Gestion des Utilisateurs</h2>
+
+    <h3>Ajouter un utilisateur</h3>
+    <input type="text" id="nom" placeholder="Nom">
+    <input type="email" id="email" placeholder="Email">
+    <input type="text" id="role" placeholder="Rôle">
+    <button onclick="ajouterUtilisateur()">Ajouter</button>
+
+   
+    <h3>Liste des utilisateurs</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Rôle</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="listeUtilisateurs"></tbody>
+    </table>
+
+    <script>
+        // Tableau unique contenant les utilisateurs sous forme de sous-tableaux
+        let utilisateurs = [
+            ["Alice Dupont", "alice@example.com", "admin"],
+            ["Bob Martin", "bob@example.com", "utilisateur"],
+            ["Charlie Durand", "charlie@example.com", "moderateur"]
+        ];
+
+        // Fonction pour afficher les utilisateurs avec une boucle for classique
+        function afficherUtilisateurs() {
+            let tbody = document.getElementById("listeUtilisateurs");
+            tbody.innerHTML = ""; // Vider le tableau avant de le remplir
+
+            for (let i = 0; i < utilisateurs.length; i++) {
+                let row = "<tr>";
+                row += "<td>" + utilisateurs[i][0] + "</td>"; // Nom
+                row += "<td>" + utilisateurs[i][1] + "</td>"; // Email
+                row += "<td>" + utilisateurs[i][2] + "</td>"; // Rôle
+                row += `<td><button onclick="supprimerUtilisateur(${i})">Supprimer</button></td>`;
+                row += "</tr>";
+
+                tbody.innerHTML += row;
+            }
+        }
+
+        // Fonction pour ajouter un utilisateur
+        function ajouterUtilisateur() {
+            let nom = document.getElementById("nom").value;
+            let email = document.getElementById("email").value;
+            let role = document.getElementById("role").value;
+
+            if (nom && email && role) {
+                // Vérifier si l'email existe déjà
+                for (let i = 0; i < utilisateurs.length; i++) {
+                    if (utilisateurs[i][1] === email) {
+                        alert(" Cet email est déjà utilisé !");
+                        return;
+                    }
+                }
+
+                utilisateurs.push([nom, email, role]);
+                afficherUtilisateurs();
+            } else {
+                alert(" Veuillez remplir tous les champs !");
+            }
+        }
+
+        // Fonction pour supprimer un utilisateur
+        function supprimerUtilisateur(index) {
+           utilisateurs.splice(index,1)
+            afficherUtilisateurs();
+        }
+
+   
+
+        // Afficher les utilisateurs au chargement de la page
+        afficherUtilisateurs();
+    </script>
+
+</body>
+</html>
