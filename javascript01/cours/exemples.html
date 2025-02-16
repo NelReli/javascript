@@ -57,10 +57,13 @@
                 row += `<td><button onclick="supprimerUtilisateur(${i})">Supprimer</button></td>`;
                 row += "</tr>";
 
-                tbody.innerHTML += row;
+             
+                tbody.innerHTML = tbody.innerHTML + row
             }
-        }
 
+            
+        }
+ 
         // Fonction pour ajouter un utilisateur
         function ajouterUtilisateur() {
             let nom = document.getElementById("nom").value;
@@ -93,6 +96,8 @@
 
         // Afficher les utilisateurs au chargement de la page
         afficherUtilisateurs();
+
+
     </script>
 
 </body>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Événements en JavaScript</title>
+    <style>
+        .hover-effect {
+            padding: 10px;
+            background-color: lightgray;
+            cursor: pointer;
+        }
+        .scroll-box {
+            position: fixed;
+            top: 50%;
+            right: -200px;
+            width: 200px;
+            height: 100px;
+            background-color: blue;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: right 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titre" class="hover-effect" onclick="afficherAlerte()" oncontextmenu="bloquerMenu(event)">
+        Cliquez sur moi (Clic droit désactivé)
+    </h1>
+    
+    <button id="monBouton" ondblclick="afficherDoubleClic()" onmouseenter="agrandirTexte(this)" onmouseleave="reduireTexte(this)">
+        Double-cliquez-moi / Survolez-moi
+    </button>
+    
+    <input type="text" id="monInput" oninput="montrerValeur(this)" onfocus="changerFond(this, 'lightblue')" onblur="changerFond(this, 'white')" placeholder="Tapez quelque chose...">
+    
+    <p class="hover-effect" onmouseover="changerCouleur(this, 'red')" onmouseout="changerCouleur(this, 'black')" onmousedown="afficherMessage('Bouton enfoncé')" onmouseup="afficherMessage('Bouton relâché')">
+        Passez la souris ici
+    </p>
+
+    <div id="scrollBox" class="scroll-box">Je sors au scroll</div>
+
+    <script>
+        function afficherAlerte() {
+            alert("Titre cliqué depuis l'attribut onClick !");
+        }
+
+        function afficherDoubleClic() {
+            alert("Bouton double-cliqué !");
+        }
+
+        function montrerValeur(element) {
+            console.log("Valeur actuelle :", element.value);
+        }
+
+        function changerCouleur(element, couleur) {
+            element.style.color = couleur;
+        }
+
+        function changerFond(element, couleur) {
+            element.style.backgroundColor = couleur;
+        }
+
+        function agrandirTexte(element) {
+            element.style.fontSize = "20px";
+        }
+
+        function reduireTexte(element) {
+            element.style.fontSize = "16px";
+        }
+
+        function afficherMessage(message) {
+            console.log(message);
+        }
+
+        function bloquerMenu(event) {
+            event.preventDefault();
+            alert("Clic droit désactivé sur cet élément.");
+        }
+
+        function gererResize() {
+            console.log("Fenêtre redimensionnée :", window.innerWidth, "x", window.innerHeight);
+        }
+
+        function gererScroll() {
+            console.log("Défilement détecté");
+            const scrollBox = document.getElementById("scrollBox");
+            if (window.scrollY > 50) {
+                scrollBox.style.right = "0";
+            } else {
+                scrollBox.style.right = "-200px";
+            }
+        }
+
+        // Ajout d'événements avec addEventListener
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("La page est chargée !");
+        });
+
+        window.addEventListener("resize", gererResize);
+        window.addEventListener("scroll", gererScroll);
+
+        const bouton = document.getElementById("monBouton");
+        if (bouton) {
+            bouton.addEventListener("mousedown", function() {
+                bouton.style.backgroundColor = "yellow";
+            });
+            bouton.addEventListener("mouseup", function() {
+                bouton.style.backgroundColor = "";
+            });
+        }
+    </script>
+</body>
+</html>
