@@ -23,24 +23,24 @@ function supprimerUtilisateur(email) {
     }
 }
 
-// Fonction pour trouver un utilisateur par nom
-function trouverUtilisateur(nom) {
-    let user = utilisateurs[0].includes(nom)
-    console.log("user",user)
-     if(user===true){
-return ` ${user[0]} |  ${user[1]} |  ${user[2]}`
-    }else{
-      return  ` Aucun utilisateur trouvé avec le nom "${nom}".`
-    }
-    
-}
+
+
 // Fonction pour afficher la liste des utilisateurs
+// function afficherUtilisateurs() {
+//     console.log("📋 Liste des utilisateurs :");
+//     utilisateurs.forEach(user => {
+//         console.log(`👤 ${user[0]} | 📧 ${user[1]} | 🎭 ${user[2]}`);
+//     });
+// }
+
 function afficherUtilisateurs() {
-    console.log("📋 Liste des utilisateurs :");
-    utilisateurs.forEach(user => {
-        console.log(`👤 ${user[0]} | 📧 ${user[1]} | 🎭 ${user[2]}`);
-    });
+
+    console.log(" Liste des utilisateurs :");
+    for (let i = 0; i < utilisateurs.length; i++) {
+        console.log(` ${utilisateurs[i][0]} |  ${utilisateurs[i][1]} |  ${utilisateurs[i][2]}`);
+    }
 }
+
 
 // Tests des fonctions
 ajouterUtilisateur("David Lemoine", "david@example.com", "utilisateur");
