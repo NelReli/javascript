@@ -26,7 +26,7 @@ function max(a,b){
 // Exercice 2 : Vérifier si un nombre est positif, négatif ou nul
 
 function plusOuMoin(){
-
+// isNaN si not a number
     if(!isNaN(2)){
         console.error("il doit y avoir un nombre")
         return

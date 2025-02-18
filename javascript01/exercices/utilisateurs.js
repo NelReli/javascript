@@ -24,15 +24,6 @@ function supprimerUtilisateur(email) {
 }
 
 
-
-// Fonction pour afficher la liste des utilisateurs
-// function afficherUtilisateurs() {
-//     console.log("📋 Liste des utilisateurs :");
-//     utilisateurs.forEach(user => {
-//         console.log(`👤 ${user[0]} | 📧 ${user[1]} | 🎭 ${user[2]}`);
-//     });
-// }
-
 function afficherUtilisateurs() {
 
     console.log(" Liste des utilisateurs :");
@@ -45,6 +36,6 @@ function afficherUtilisateurs() {
 // Tests des fonctions
 ajouterUtilisateur("David Lemoine", "david@example.com", "utilisateur");
 afficherUtilisateurs();
-console.log(trouverUtilisateur("Alice Dupont"));
+
 supprimerUtilisateur("bob@example.com");
 afficherUtilisateurs();

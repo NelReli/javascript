@@ -138,33 +138,6 @@ for(let i=0;i<userClass.length;i++){
   
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const listeUtilisateurs = document.getElementById("listeUtilisateurs");
 
 for (let i = 0; i < utilisateurs.length; i++) {
