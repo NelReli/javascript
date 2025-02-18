@@ -25,14 +25,14 @@ function max(a,b){
 
 // Exercice 2 : Vérifier si un nombre est positif, négatif ou nul
 
-function plusOuMoin(){
+function plusOuMoin(parametre){
 // isNaN si not a number
-    if(!isNaN(2)){
+    if(!isNaN(parametre)){
         console.error("il doit y avoir un nombre")
         return
-    }else if(2< 0){
+    }else if(parametre< 0){
        return "nombre negatif"
-    }else if(2 === 0){
+    }else if(parametre === 0){
         return "nombre null"
     }else{
         return "nombre positif"
@@ -41,12 +41,12 @@ function plusOuMoin(){
 }
 }
 
-plusOuMoin()
-plusOuMoin()
-plusOuMoin()
-plusOuMoin()
-plusOuMoin()
-plusOuMoin()
+plusOuMoin("chaton")
+plusOuMoin(-5)
+plusOuMoin(10)
+plusOuMoin(0)
+plusOuMoin(-4)
+plusOuMoin("chiot")
 
 
 // Écrire une fonction verifierNombre(n) qui prend un nombre en paramètre et affiche s'il est positif, négatif ou nul.
@@ -134,7 +134,9 @@ function criAnimals(animal){
 
     }
 }
-consol(criAnimals("rat"))
+console.log( "cris animaux : ", criAnimals("chat"))
+console.log( "cris animaux : ", criAnimals("cheval"))
+
 
 
 function plusOuMoin(chiffre){

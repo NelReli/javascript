@@ -4,7 +4,6 @@
 // créer un tablaeu contenant "pomme" "banane" "cerise" "orange"
 
 // ajouter "kiwi" à la fin []
-// const fruits=["pomme","banane","cerise","orange"]
 // et "ananas " au début
 
 // suprimer dernier élémént
@@ -14,23 +13,7 @@
 // utiliser les consoles log
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+const fruits=["pomme","banane","cerise","orange"]
 
 fruits.push("kiwi")
 fruits.unshift("ananas")
@@ -94,6 +77,42 @@ let utilisateurs = [
 // créer une pour supprimer un utilisateur
 
 // créer une fonction pourafficher liste des utilisateurs
+// Tableau principal contenant les utilisateurs
+
+// Fonction pour ajouter un utilisateur
+function ajouterUtilisateur(nom, email, role) {
+    utilisateurs.push([nom, email, role]);
+    console.log(`✅ ${nom} a été ajouté.`);
+}
+
+// Fonction pour supprimer un utilisateur par email
+function supprimerUtilisateur(email) {
+    let index = utilisateurs[1].indexOf(email)
+    console.log(index)
+    if (index !== -1) {
+        console.log(` ${utilisateurs[index][0]} a été supprimé.`);
+        utilisateurs.splice(index, 1);
+    } else {
+        console.log(` Aucun utilisateur trouvé avec l'email "${email}".`);
+    }
+}
+
+
+function afficherUtilisateurs() {
+
+    console.log(" Liste des utilisateurs :");
+    for (let i = 0; i < utilisateurs.length; i++) {
+        console.log(` ${utilisateurs[i][0]} |  ${utilisateurs[i][1]} |  ${utilisateurs[i][2]}`);
+    }
+}
+
+
+// Tests des fonctions
+ajouterUtilisateur("David Lemoine", "david@example.com", "utilisateur");
+afficherUtilisateurs();
+
+supprimerUtilisateur("bob@example.com");
+afficherUtilisateurs();
 
 
 
