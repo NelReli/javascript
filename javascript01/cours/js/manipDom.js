@@ -17,6 +17,9 @@ const toutesLesClass=document.querySelectorAll(".ma-classe") // selectionne tous
 const text=document.querySelector("#text")
 
 
+//particularité de getElementsByClassName ou querySelectorAll, il renvoit une liste(tableau) donc à manipiler comme un tableau
+
+
 // 2 Modification du contenu
 
 if(titre){
@@ -74,6 +77,10 @@ const button=document.querySelector(".button")
   
  }
 
+ /**
+ * Exercice 1 : Modifier le texte d'un bouton au clic
+ */
+
  
 
  function colorChange(){
@@ -98,11 +105,16 @@ button.style.color="red"
        
    
        }
-
-// autre façon de faire un evenement js 
-
-const text3=document.querySelector("#text3")
-const parent =document.querySelector("#parent")
+       
+       
+       const text3=document.querySelector("#text3")
+       const parent =document.querySelector("#parent")
+       // autre façon de faire un evenement js 
+       text3.addEventListener("mouseleave",function(){
+       
+           text3.style.width="50%"
+       
+       })
 
 text3.addEventListener("click",function(){
  
@@ -111,17 +123,29 @@ text3.addEventListener("click",function(){
 
 })
 
+
+// evenement quand la souris entre dans une div
 text3.addEventListener("mouseenter",function(){
 
     text3.classList.add("text3")
 })
 
+
+
+// creation d'une div avec ceateElement 
 const text4=document.createElement("div")
 text4.classList.add("text4")
 text4.innerText="bonjour"
+text4.style.margin="auto"
 parent.appendChild(text4)
 
+
+
+
+
+// evenement au click pour afficher ou supprimer une modal
 const buttonModal=document.querySelector("#buttonModal")
+const modal=document.querySelector(".modal")
 
 
 
@@ -132,21 +156,63 @@ const buttonModal=document.querySelector("#buttonModal")
 
 
 
-
-
-
-
-
-
-
-
-
-
-text3.addEventListener("mouseleave",function(){
-
-    text3.style.width="50%"
-
+// utilisation de toggle
+buttonModal.addEventListener('click',function(){
+    
+    modal.classList.toggle("block")// soit toggle ajoute la class si absente mais si présente alors toggle supprime la class
+    
 })
+
+
+
+
+const closed=document.querySelector("#closed")
+// utilisation de remove, quand closed est cliqué alors la class block( qui fait apparaitre la div ) est supprimer
+closed.addEventListener('click',function(){
+    modal.classList.remove('block')
+})
+
+
+
+
+
+
+const deplacementElement = document.getElementById("carre");
+let positionX = 0;
+let positionY = 0;
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "ArrowRight") {
+        positionX += 10;
+    } else if (event.key === "ArrowLeft") {
+        positionX -= 10;
+    } else if (event.key === "ArrowDown") {
+        positionY += 10;
+    } else if (event.key === "ArrowUp") {
+        positionY -= 10;
+    }
+    deplacementElement.style.transform = `translate(${positionX}px, ${positionY}px)`;
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

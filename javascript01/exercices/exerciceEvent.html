@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    #listeUtilisateurs li {
+        padding: 5px;
+        cursor: pointer;
+    }#listeUtilisateurs li:hover{
+        background-color: chocolate;
+    }
+</style>
+
+
+</head>
+
+<body>
+
+    <h3> 1. modifier texte au click </h3>
+
+    <div style=" 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    width: 100%;">
+
+        <div  style="width: 50%;">
+            <p id="modifText" >je suis un texte à modifier</p>
+        </div>
+
+        <button onclick=modifText() id="button" style="padding: 5px; background-color: coral;">
+            je change le texte au click
+        </button>
+
+    </div>
+
+<hr>
+<div>
+    <p id="paraChange">je suis un texte</p>
+</div>
+
+<button onclick=modificationText() id="button3">
+    cliquer sur moi
+</button>
+
+
+
+
+<hr>
+    <h3> 2.change de style au survol</h3>
+
+    <div id="changeColor" style="width: 100% ; background-color: black; height: 10rem;" >
+
+    </div>
+
+
+    <hr>
+
+    <div id="changeColor2" style="width: 100% ; background-color: black; height: 10rem;" ></div>
+
+
+
+
+    <hr>
+    
+
+
+
+
+
+
+ <h3>
+    3. ajout nouvel élément dans la liste
+ </h3>
+
+ <div style="
+ width: 100%; 
+ box-shadow: 1px,1px,1px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ ">
+
+ <div >
+    <ul class="liste">
+        <li> je suis 1  </li>
+        <li> je suis 2 </li>
+        <li> je suis 3 </li>
+        <li> je suis 4 </li>
+    </ul>
+    <button class="button">
+       j'ajoute une liste
+    </button>
+
+    <ul class="liste">
+        <li> je suis 1  </li>
+        <li> je suis 2 </li>
+        <li> je suis 3 </li>
+        <li> je suis 4 </li>
+
+    </ul>
+
+ </div>
+
+ <button class="button">
+    j'ajoute une liste
+ </button>
+
+ </div>
+
+ <h4>liste utilistaeurs</h4>
+
+ <ul id="listeUtilisateurs">
+
+ </ul>
+
+
+
+
+
+
+
+
+
+
+
+ 
+ <div class="user" style="width: 50px;height: 50px; border: 1px solid red;"></div>
+ <div class="user" style="width: 50px;height: 50px; border: 1px solid red;"></div>
+ <div class="user" style="width: 50px;height: 50px; border: 1px solid red;"></div>
+ <div class="user" style="width: 50px;height: 50px; border: 1px solid red;"></div>
+
+
+
+
+
+    <script src="/exercices/exoEvent.js"></script>
+</body>
+
+</html>

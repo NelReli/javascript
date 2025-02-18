@@ -34,8 +34,8 @@
         Double-cliquez-moi / Survolez-moi
     </button>
     
-    <input type="text" id="monInput" oninput="montrerValeur(this)" onfocus="changerFond(this, 'lightblue')" onblur="changerFond(this, 'white')" placeholder="Tapez quelque chose...">
-    
+    <input type="text" id="monInput" oninput="montrerValeur()" onfocus="changerFond(this, 'lightblue')" onblur="changerFond(this, 'white')" placeholder="Tapez quelque chose...">
+    <p id="para"></p>
     <p class="hover-effect" onmouseover="changerCouleur(this, 'red')" onmouseout="changerCouleur(this, 'black')" onmousedown="afficherMessage('Bouton enfoncé')" onmouseup="afficherMessage('Bouton relâché')">
         Passez la souris ici
     </p>
@@ -51,8 +51,12 @@
             alert("Bouton double-cliqué !");
         }
 
-        function montrerValeur(element) {
-            console.log("Valeur actuelle :", element.value);
+        function montrerValeur() {
+            const valeur=document.querySelector('#monInput')
+            const para=document.querySelector('#para')
+              
+            console.log("Valeur actuelle :", valeur.value);
+            para.textContent=valeur.value
         }
 
         function changerCouleur(element, couleur) {
@@ -87,7 +91,7 @@
         function gererScroll() {
             console.log("Défilement détecté");
             const scrollBox = document.getElementById("scrollBox");
-            if (window.scrollY > 50) {
+            if (scrollY > 50) {
                 scrollBox.style.right = "0";
             } else {
                 scrollBox.style.right = "-200px";
@@ -111,6 +115,6 @@
                 bouton.style.backgroundColor = "";
             });
         }
-    </script>+
+    </script>
 </body>
 </html>
