@@ -12,6 +12,43 @@ const elementsClasse = document.getElementsByClassName("ma-classe"); // Sélecti
 const premierParagraphe = document.querySelector("p"); // Sélection du premier élément correspondant
 const tousParagraphes = document.querySelectorAll("p"); // Sélection de tous les éléments correspondants
 
+// ATTENTION querySelectorAll getElementsByClassName renvoient toujours un tableau
+
+// pour selectionner un élements de ce tableau avec des index faire :
+
+const elementsClasses = document.getElementsByClassName("ma-classe")[1]
+
+// pour selectionner dynamiquement faire une boucle
+// exemple : dans cette boucle on selectionne dynamiquement l'index pour l'événement au click
+for(let i=0;i<elementsClasses.length;i++){
+
+    elementsClasses[i].addEventListener("click",function(){
+
+        elementsClasses[i].style.backgroundColor="black"
+    })
+
+}
+
+// pour que l'evenement au click se fasse sur tous les elements en même temps alors faire une boucle imbriqué
+// ici quand on clique sur un element du tableau alors tous les index change au click
+
+ for (let i = 0; i < userClass.length; i++) {
+
+
+     userClass[i].addEventListener("click", function () {
+  
+      for (let j = 0; j < userClass.length; j++) {
+        userClass[j].style.backgroundColor = "black";
+  
+       }
+      
+     });
+  }
+
+
+
+
+
 // 2. Modification du contenu
 if (titre) {
     titre.textContent = "Nouveau titre"; // Change le texte du titre

@@ -89,18 +89,31 @@ button4.addEventListener("click",function(){
  * ajouter un textContent a "li" qui sera le i (index) de utilisateur
  * 
  * creer une fonction au click affichant une alert quand un nom de la liste du tableau est cliqué.
- * dans l'arte il est ecris " vous avez cliqué sur + "nom de l'utlisateur cliqué" "
+ * dans l'arte il est écris " vous avez cliqué sur + "nom de l'utlisateur cliqué" "
  * 
  */
 
 
 
-const utilisateurs = ["Alice", "Bob", "Charlie", "David"];
+const utilisateurs = ["Mohamed", "Idriss", "Najiba", "Mathieu"];
 
+const ul=document.querySelector("#listeUtilisateurs")
 
-for(i=0;i<utilisateurs.length;i++){
+for(let i=0;i<utilisateurs.length;i++){
+  
 
-    
+    const li=document.createElement("li")
+    li.textContent=utilisateurs[i]
+    ul.appendChild(li)
+
+    console.log("li", li.textContent)
+
+    console.log("console lod de user i : ",utilisateurs[i])
+
+    li.addEventListener("click",function(){
+
+        alert(" vous avez cliqué sur " + utilisateurs[i] )
+    })
 }
 
 
@@ -138,13 +151,13 @@ for(let i=0;i<userClass.length;i++){
   
 
 
-const listeUtilisateurs = document.getElementById("listeUtilisateurs");
+// const listeUtilisateurs = document.getElementById("listeUtilisateurs");
 
-for (let i = 0; i < utilisateurs.length; i++) {
-    const li = document.createElement("li");
-    li.textContent = utilisateurs[i];
-    li.addEventListener("click", function() {
-        alert("Utilisateur sélectionné : " + utilisateurs[i]);
-    });
-    listeUtilisateurs.appendChild(li);
-}
+// for (let i = 0; i < utilisateurs.length; i++) {
+//     const li = document.createElement("li");
+//     li.textContent = utilisateurs[i];
+//     li.addEventListener("click", function() {
+//         alert("Utilisateur sélectionné : " + utilisateurs[i]);
+//     });
+//     listeUtilisateurs.appendChild(li);
+// }
