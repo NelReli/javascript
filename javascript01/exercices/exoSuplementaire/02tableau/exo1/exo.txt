@@ -1,0 +1,8 @@
+
+//Retirer le dernière valeur du tableau jours
+// Afficher les valeurs du tableau en utilisant la méthode document.write
+// Ajouter la valeur ‘dim’ à la fin du tableau
+// Remplacer la valeur ‘mra’ par ‘mar’
+// Afficher le nombre de valeurs du tableau en utilisant la méthode document.write
+// Afficher la troisième valeur du tableau
+let semaine = [ 'lun', 'mra', 'mer', 'jeu', 'ven', 'sam', 'ddi' ];

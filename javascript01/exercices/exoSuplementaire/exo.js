@@ -104,7 +104,7 @@ let array = [0, 1, 1, 2, 3, 5, 8, 13, 21, 34];
 let semaine = [ 'lun', 'mra', 'mer', 'jeu', 'ven', 'sam', 'ddi' ];
 
 
-
+z
 // exo 14
 // Écrire un programme qui:
 // Affiche la liste de fruits disponibles;

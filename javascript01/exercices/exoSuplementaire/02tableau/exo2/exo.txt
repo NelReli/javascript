@@ -1,0 +1,9 @@
+
+
+// Écrire un programme qui:
+// Affiche la liste de fruits disponibles;
+// Demande au client quel fruit il désire acheter:
+// s’il est présent dans le tableau fruits: le retirer du tableau, et afficher ‘ok!’,
+// sinon, afficher ‘indisponible…’.
+// Affiche à nouveau la liste de fruits disponibles.
+let fruits = [ 'Mangue', 'Raisin', 'Figue', 'Kiwi' ];
