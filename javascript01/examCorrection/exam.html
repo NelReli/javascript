@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionnaire de Liste de Tâches</title>
+    <style>
+        .content {
+            position: absolute;
+            background-color: red;
+            border: 1px solid black;
+            padding: 5px;
+        }
+
+        .none {
+            display: none;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Ma Liste de Tâches</h1>
+        <input type="text" id="input" placeholder="Nouvelle tâche" />
+        <button id="button">Ajouter</button>
+        <ul id="ul"></ul>
+    </div>
+
+
+
+    <script>
+
+        const ul = document.querySelector("#ul");
+        const button = document.querySelector("#button");
+        const input = document.querySelector("#input");
+
+        let tab = [];
+
+        button.addEventListener("click", ajouter);  // au click du bouton la fonction ajouter()  est appelé 
+
+        function ajouter() {  // fonction pour ajouter avec push() la veleur de l'input récuperé dans le tableau tab
+
+            let valeur = input.value; // recuperer de la chaine de caractère de l'input quand le bouton est cliqué
+        
+
+            if(input.value !== "" ){ // si la valeur  de l'input n'est pas une chaine de caractère vide  ( !==)
+                tab.push(input.value) 
+
+            }else{ // sinon
+
+                alert("vous n'avez rien tapé !! ")
+
+            }
+          
+
+            console.log("new tableau", tab);
+
+            affichage(); // au click du button et après ajout de la valeur de l'input dans le tableau la fonction affichage est appelé
+        }
+
+        function affichage() {
+            ul.innerHTML = ""; // a chaque appelle de la fonction le contenu de l'ul se vide
+
+            for (let i = 0; i < tab.length; i++) {  // Bboucle for
+                const li = document.createElement("li");
+
+                text = tab[i].substring(0, 5); // on recupère le 5 premiers index de la chaine de caractère tab[i]
+
+                if (tab[i].length > 5) {  // si la longueur valeur qui est une chaine de caractère est suppérieur à 5 alors on ajoute "..."
+                    li.textContent = text + "..."
+
+                    mouseEvent(li, tab[i]) // appele de la fonction, elle lui faut 2 arguments
+
+                } else {
+
+                    (li.textContent = tab[i]); // sinon on affiche toute la chaine de caractère
+
+                }
+
+
+                const deleteButton = document.createElement("button");// creation d'un bouton dans le DOM
+                deleteButton.textContent = "supprimer"; 
+
+            
+                console.log(tab[i]);
+
+                deleteButton.addEventListener("click", function () {
+                    suppression(i);  // appelle fonction suppression avec 1 argument
+                });
+
+                li.appendChild(deleteButton); //deletebonton sera une div enfant de li
+                ul.appendChild(li);// li sera une div enfant de ul
+                input.value = ""; // on vide l'input quand on click sur le bouton ajouter
+            }
+        }
+
+        function suppression(index) { // index en parametre de la fonction
+            console.log(index);
+            tab.splice(index, 1);  // fonction splice pour supprimer, cette fonction prend en argument l'index , puis 1 pour dire suppression de l'élement dans cette index
+
+            console.log("tab sup", tab);
+            affichage();  // reactualisation du tableau et de son affichage dans le Dom au click du bouton supprimé
+        }
+
+        function mouseEvent(element, text) {  // fonction  pour gerer les mouseenter et mouseleave 
+            const liHover = document.createElement("div");
+            liHover.classList.add("content", "none"); // ces class existent dans le CSS et ont des propriétés spécifiques
+            element.appendChild(liHover);
+
+            element.addEventListener("mouseenter", () => {
+                liHover.classList.remove("none");
+                liHover.textContent = text;
+            });
+
+            element.addEventListener("mouseleave", () => {
+                liHover.classList.add("none");
+            });
+        }
+
+
+    </script>
+</body>
+
+</html>

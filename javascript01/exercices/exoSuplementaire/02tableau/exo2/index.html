@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+
+    <script>
+
+let fruits = [ 'Mangue', 'Raisin', 'Figue', 'Kiwi' ];
+
+
+
+
+let valeurPrompt=prompt("choisisser parmi ces fruits" + fruits)
+
+
+
+index=fruits.indexOf(valeurPrompt)
+
+if( index===-1 ){
+
+    alert( "produit non disponible")
+}else{
+    fruits.splice(index,1)
+    console.log("produit supprimer")
+    console.log(fruits)
+}
+
+
+
+
+    </script>
+</body>
+
+</html>
